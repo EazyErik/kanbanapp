@@ -33,21 +33,42 @@ export default function KanbanCard(props:KanbanCardProps) {
 
     return (
 
-        <div>
-            <p>{props.task.task}</p>
-            <p>{props.task.description}</p>
+        // <div>
+        //     <p>{props.task.task}</p>
+        //     <p>{props.task.description}</p>
+        //
+        //     {props.task.status === "OPEN" ? <button onClick={deleteCard} type="button" className="btn btn-dark" data-bs-toggle="button">Delete</button> :
+        //         <button onClick={prev} type="button" className="btn btn-dark" data-bs-toggle="button">Back</button>
+        //     }
+        //
+        //     {props.task.status === "DONE" ? <button onClick={deleteCard} type="button" className="btn btn-dark" data-bs-toggle="button">Delete</button> :
+        //         <button onClick={next} type="button" className="btn btn-dark" data-bs-toggle="button" >Forward</button>}
+        //
+        //
+        //
+        //     <button onClick={() => nav(`edit/${props.task.id}`)} type="button" className="btn btn-dark" data-bs-toggle="button">Edit</button>
+        // </div>
 
-            {props.task.status === "OPEN" ? <button onClick={deleteCard} type="button" className="btn btn-dark" data-bs-toggle="button">Delete</button> :
-                <button onClick={prev} type="button" className="btn btn-dark" data-bs-toggle="button">Back</button>
-            }
+    <div className="card">
 
-            {props.task.status === "DONE" ? <button onClick={deleteCard} type="button" className="btn btn-dark" data-bs-toggle="button">Delete</button> :
-                <button onClick={next} type="button" className="btn btn-dark" data-bs-toggle="button" >Forward</button>}
+            <div className="card-body">
+                <h5 className="card-title"><p>{props.task.task}</p>
+                         <p>{props.task.description}</p></h5>
+
+                {props.task.status === "OPEN" ? <button onClick={deleteCard} type="button" className="btn btn-dark" data-bs-toggle="button">Delete</button> :
+                    <button onClick={prev} type="button" className="btn btn-dark" data-bs-toggle="button">Back</button>
+                }
+
+                {props.task.status === "DONE" ? <button onClick={deleteCard} type="button" className="btn btn-dark" data-bs-toggle="button">Delete</button> :
+                    <button onClick={next} type="button" className="btn btn-dark" data-bs-toggle="button" >Forward</button>}
 
 
 
-            <button onClick={() => nav(`edit/${props.task.id}`)} type="button" className="btn btn-dark" data-bs-toggle="button">Edit</button>
-        </div>
+                <button onClick={() => nav(`edit/${props.task.id}`)} type="button" className="btn btn-dark" data-bs-toggle="button">Edit</button>
+
+
+            </div>
+    </div>
 
     )
 
