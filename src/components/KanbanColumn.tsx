@@ -22,7 +22,7 @@ export default function KanbanColumn(props: KanbanColumnProps) {
    ))
     return (
         <div className={"kanbanColumn"}>
-            <h3>{props.status}</h3>
+            <h2>{props.status}</h2>
             {taskComponents}
 
         </div>

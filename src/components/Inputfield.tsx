@@ -30,10 +30,23 @@ export default function Inputfield(props:InputfieldProps) {
     }
 
     return (
-        <div>
-            <input type="text" placeholder={"enter task"} value={task} onChange={event => setTask(event.target.value)}/>
-            <input type="text" placeholder={"enter description"}value={description} onChange={event => setDescription(event.target.value)}/>
-            <button type={"button"} onClick={create}>save</button>
+        <div className={"inputField"}>
+
+
+
+
+            <input className="form-control form-control-lg" type="text"placeholder={"enter task"} value={task} onChange={event => setTask(event.target.value)}
+                   aria-label=".form-control-lg example"/>
+            <input className="form-control form-control-lg" type="text" placeholder={"enter description"}value={description} onChange={event => setDescription(event.target.value)}
+                   aria-label=".form-control-lg example"/>
+
+
+
+
+            <div className="d-grid gap-2">
+
+                <button onClick={create} className="btn btn-dark" type="button">Save</button>
+            </div>
         </div>
 
     )

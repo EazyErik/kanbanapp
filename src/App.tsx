@@ -9,6 +9,7 @@ import {Task} from "./components/model";
 
 
 
+
 export default function App() {
 
     const [tasks, setTasks] = useState<Array<Task>>([]);
@@ -22,8 +23,10 @@ export default function App() {
             .then(tasksFromDB => setTasks(tasksFromDB));
     }
     return (
-        <div>
-            <Heading/>
+        <div >
+
+
+
             <Inputfield  onTaskCreation={fetchAll}/>
             <KanbanGallery tasks={tasks} updateTasks={fetchAll}/>
         </div>

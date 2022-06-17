@@ -1,6 +1,7 @@
 import React from "react";
 import {Task} from "./model";
 import {deleteTask, demoteTask, promoteTask} from "../services/apiServices";
+import {useNavigate} from "react-router-dom";
 
 interface KanbanCardProps{
     task:Task;
@@ -26,9 +27,7 @@ export default function KanbanCard(props:KanbanCardProps) {
             .then(() => props.onTaskManipulation())
     }
 
-    const edit = () => {
-        //TODO
-    }
+   const nav =useNavigate()
 
 
 
@@ -38,14 +37,16 @@ export default function KanbanCard(props:KanbanCardProps) {
             <p>{props.task.task}</p>
             <p>{props.task.description}</p>
 
-            {props.task.status === "OPEN" ? <button onClick={deleteCard}>Delete</button> :
-                <button onClick={prev}>Back</button>
+            {props.task.status === "OPEN" ? <button onClick={deleteCard} type="button" className="btn btn-dark" data-bs-toggle="button">Delete</button> :
+                <button onClick={prev} type="button" className="btn btn-dark" data-bs-toggle="button">Back</button>
             }
 
-            {props.task.status === "DONE" ? <button onClick={deleteCard}>Delete</button> :
-                <button onClick={next}>Forward</button>}
+            {props.task.status === "DONE" ? <button onClick={deleteCard} type="button" className="btn btn-dark" data-bs-toggle="button">Delete</button> :
+                <button onClick={next} type="button" className="btn btn-dark" data-bs-toggle="button" >Forward</button>}
 
-            <button onClick={edit}>Edit</button>
+
+
+            <button onClick={() => nav(`edit/${props.task.id}`)} type="button" className="btn btn-dark" data-bs-toggle="button">Edit</button>
         </div>
 
     )

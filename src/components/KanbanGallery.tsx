@@ -15,10 +15,19 @@ export default function KanbanGallery(props:KanbanGalleryProps) {
     const doneTasks = props.tasks.filter(task => task.status === "DONE");
 
     return (
-        <div className={"kanbanGallery"}>
-            <KanbanColumn status={"Open"} tasks={openTasks} onTaskManipulation={props.updateTasks}/>
-            <KanbanColumn status={"In Progress"} tasks={tasksInProgress} onTaskManipulation={props.updateTasks}/>
-            <KanbanColumn status={"Done"} tasks={doneTasks} onTaskManipulation={props.updateTasks}/>
+
+        <div className="kanbanGallery">
+            <div className="row">
+                <div className="col">
+                    <KanbanColumn status={"Open"} tasks={openTasks} onTaskManipulation={props.updateTasks}/>
+                </div>
+                <div className="col">
+                    <KanbanColumn status={"In Progress"} tasks={tasksInProgress} onTaskManipulation={props.updateTasks}/>
+                </div>
+                <div className="col">
+                    <KanbanColumn status={"Done"} tasks={doneTasks} onTaskManipulation={props.updateTasks}/>
+                </div>
+            </div>
         </div>
     )
 }

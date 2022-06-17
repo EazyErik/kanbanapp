@@ -21,3 +21,14 @@ export function promoteTask(task:Task) {
 export function demoteTask(task:Task) {
     return axios.put(`http://localhost:8080/api/kanban/prev`,task)
 }
+
+export function getKanbanById(id:string) {
+    return axios.get(`http://localhost:8080/api/kanban/${id}`)
+
+
+}
+
+export function putUpdatedKanban(task:Task) {
+    return axios.put(`http://localhost:8080/api/kanban/`,task)
+        .then(response => response.data)
+}
