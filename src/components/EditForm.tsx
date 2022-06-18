@@ -1,4 +1,4 @@
-import {FormEvent, useEffect, useState} from "react";
+import React, {FormEvent, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {getKanbanById, putUpdatedKanban,} from "../services/apiServices";
 import {Task} from "./model";
@@ -47,16 +47,17 @@ export default function EditForm() {
     return (
         <form className={"editForm"} onSubmit={updateKanban}>
 
-            <input type="text" placeholder={"Edit task"} value={editTask}
-                   onChange={event => setEditTask(event.target.value)}/>
+            <input className="form-control form-control-lg" type="text"placeholder={"Edit task"} value={editTask}
+                   onChange={event => setEditTask(event.target.value)}
+                   aria-label=".form-control-lg example"/>
 
-            <br/>
-            <br/>
-            <input type="text" placeholder={"Edit description"} value={editDescription}
-                   onChange={event => setEditDescription(event.target.value)}/>
-             <br/>
-            <button type={"submit"}>save</button>
+            <input className="form-control form-control-lg" type="text"placeholder={"Edit description"} value={editDescription}
+                   onChange={event => setEditDescription(event.target.value)}
+                   aria-label=".form-control-lg example"/>
 
+            <div className="d-grid gap-2">
+            <button type={"submit"}  className="btn btn-dark" >Save</button>
+             </div>
         </form>
     )
 }
