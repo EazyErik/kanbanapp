@@ -1,7 +1,7 @@
 import React, {FormEvent, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {getKanbanById, putUpdatedKanban,} from "../services/apiServices";
-import {Task} from "./model";
+import {KanbanStatus, Task} from "./model";
 import {AxiosResponse} from "axios";
 
 
@@ -35,7 +35,7 @@ export default function EditForm() {
             task:editTask,
             description:editDescription,
             id:id,
-            status:status
+            status:KanbanStatus.OPEN,
     })
             .then(() => nav("/"))
 

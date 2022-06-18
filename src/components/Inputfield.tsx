@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {createTask} from "../services/apiServices";
+import {KanbanStatus} from "./model";
 
 
 interface InputfieldProps {
@@ -28,7 +29,7 @@ export default function Inputfield(props:InputfieldProps) {
             createTask({
                 task:task,
                 description:description,
-                status: "OPEN",
+                status: KanbanStatus.OPEN,
 
             })
             .then(() => {
@@ -51,7 +52,8 @@ export default function Inputfield(props:InputfieldProps) {
 
 
             <div className="d-grid gap-2">
-                <button onClick={create} className="btn btn-dark" type="button">Save</button>
+                {task && description &&  <button onClick={create} className="btn btn-dark" type="button">Save</button>}
+
             </div>
         </div>
 
