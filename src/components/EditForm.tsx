@@ -56,7 +56,8 @@ export default function EditForm() {
                    aria-label=".form-control-lg example"/>
 
             <div className="d-grid gap-2">
-            <button type={"submit"}  className="btn btn-dark" >Save</button>
+                {editTask && editDescription &&  <button type={"submit"} className="btn btn-dark" >Save</button>}
+
              </div>
         </form>
     )
